@@ -1,7 +1,8 @@
 // require express and other modules
 var express = require('express'),
-    app = express();
+app = express();
 var mongoose = require('mongoose');
+var db = require('./models');
 
 // parse incoming urlencoded form data
 // and populate the req.body object
@@ -12,7 +13,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
  * DATABASE *
  ************/
 
- var db = require('./models');
 
 /**********
  * ROUTES *
@@ -20,8 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serve static files from the `/public` directory:
 // i.e. `/images`, `/scripts`, `/styles`
-app.use(express.static(__dirname + '/scripts/app.js'));
-
+app.use(express.static(__dirname + 'public'));
 /*
  * HTML Endpoints
  */
@@ -42,9 +41,7 @@ app.get('/', function homepage(req, res) {
      base_url: 'https://secure-earth-69846.herokuapp.com/',
      endpoints: [
      {method: "GET", path: "/api", description: "Describes all available endpoints"},
-     {method: "GET", path: "/api/profile", description: "Matt's App"},
-     {method: "POST", path: "/api/campsite", description: "destinations"}
-   ]
+     ]
    });
  });
 

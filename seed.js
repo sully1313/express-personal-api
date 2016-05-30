@@ -2,7 +2,6 @@
 //simply run: `node seed.js` from the root of this project folder.
 
 var db = require('./models');
-var mongoose = require('mongoose');
 
 var destinationsList = [
   {
@@ -36,7 +35,6 @@ db.Destination.create(destinationsList, function(err, destinations){
 
   console.log("All destinations:", destinations);
   console.log("created", destinations.length);
-  res.json(destinations);
   process.exit(); // we're all done! Exit the program.
 });
 });
@@ -45,7 +43,6 @@ db.Profile.remove({}, function(err, profile){
 
   db.Profile.create(profile, function(err, profile){
     if(err){ return console.log("Error:", err);}
-    res.json(profile);
     process.exit();
   });
 });
