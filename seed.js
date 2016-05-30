@@ -20,9 +20,11 @@ var destinationsList = [
   },
 ];
 
-db.Campsite.remove({}, function(err, destinations){
 
-db.Campsite.create(destinationsList, function(err, destinations){
+
+db.Destination.remove({}, function(err, destinations){
+
+db.Destination.create(destinationsList, function(err, destinations){
   if (err){ return console.log("Error:", err);}
 
   console.log("All destinations:", destinations);
