@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Matt's Vaca Spots</title>
+    <title>Matt's Favorite Spots</title>
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -12,7 +12,7 @@
 
     <!-- VENDOR SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 
     <!-- APPLICATION SCRIPTS -->
     <script src="/scripts/app.js"></script>
@@ -27,13 +27,21 @@
       </div>
     </div>
     <div id="profile">
-
+      <script id="entry-template" type="text/x-handlebars-template">
+        <div class="entry">
+          {{profile}}
+        </div>
     </div>
+  </script>
     <div id="destination">
-
-
+      <script id="entry-template2" type="text/x-handlebars-template">
+        <div class="entry">
+          <img src="{{destination.city}}"/>
+          {{destination}}
+        </div>
       <div class="panel-footer">
       </div>
     </div>
+  </script>
   </body>
 </html>

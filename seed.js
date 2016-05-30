@@ -2,6 +2,7 @@
 //simply run: `node seed.js` from the root of this project folder.
 
 var db = require('./models');
+var mongoose = require('mongoose');
 
 var destinationsList = [
   {
@@ -20,7 +21,13 @@ var destinationsList = [
   },
 ];
 
-
+var profile = {
+  name: 'Matt Sullivan',
+  github_link: 'https:///github.com/sully1313',
+  github_profile_image:'https://avatars1.githubusercontent.com/u/16328122?v=3&s=460',
+  current_city: 'San Francisco',
+  pets: [{name: 'Bailey', type: 'Dog'}, {name: 'Zolie', type: 'Dog'}],
+}
 
 db.Destination.remove({}, function(err, destinations){
 
@@ -29,6 +36,16 @@ db.Destination.create(destinationsList, function(err, destinations){
 
   console.log("All destinations:", destinations);
   console.log("created", destinations.length);
+  res.json(destinations);
   process.exit(); // we're all done! Exit the program.
 });
+});
+
+db.Profile.remove({}, function(err, profile){
+
+  db.Profile.create(profile, function(err, profile){
+    if(err){ return console.log("Error:", err);}
+    res.json(profile);
+    process.exit();
+  });
 });
