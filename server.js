@@ -9,14 +9,6 @@ var db = require('./models');
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
-/************
- * DATABASE *
- ************/
-
-
-/**********
- * ROUTES *
- **********/
 
 // Serve static files from the `/public` directory:
 // i.e. `/images`, `/scripts`, `/styles`

@@ -30,6 +30,16 @@ var profile = [
 },
 ];
 
+db.Profile.remove({}, function(err, profile){
+
+  db.Profile.create(profile, function(err, profile){
+    if(err){ return console.log("Error:", err);}
+    console.log('profile:', profile);
+    console.log('created', profile.length);
+    process.exit();
+  });
+});
+
 db.Destination.remove({}, function(err, destinations){
 
 db.Destination.create(destinationsList, function(err, destinations){
@@ -39,14 +49,4 @@ db.Destination.create(destinationsList, function(err, destinations){
   console.log("created", destinations.length);
   process.exit(); // we're all done! Exit the program.
 });
-});
-
-db.Profile.remove({}, function(err, profile){
-
-  db.Profile.create(profile, function(err, profile){
-    if(err){ return console.log("Error:", err);}
-    console.log('profile:', profile);
-    console.log('created', profile.length);
-    process.exit();
-  });
 });
