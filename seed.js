@@ -42,11 +42,11 @@ db.Profile.remove({}, function(err, profile){
 
 db.Destination.remove({}, function(err, destinations){
 
-db.Destination.create(destinationsList, function(err, destinations){
-  if (err){ return console.log("Error:", err);}
+  db.Destination.create(destinationsList, function(err, destinations){
+    if (err){ return console.log("Error:", err);}
 
-  console.log("All destinations:", destinations);
-  console.log("created", destinations.length);
-  process.exit(); // we're all done! Exit the program.
-});
+    console.log("All destinations:", destinations);
+    console.log("created", destinations.length);
+    process.exit(); // we're all done! Exit the program.
+  });
 });
