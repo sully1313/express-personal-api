@@ -45,13 +45,13 @@ app.get('/', function homepage(req, res) {
    });
  });
 
-app.get('/api/profile', function profile_index(req, res){
+app.get('/profile', function profile_index(req, res){
   db.Profile.find({}, function(err, profile){
     res.json(profile);
   })
 });
 
-app.get('/api/campsite', function destination_index(req, res){
+app.get('/campsite', function destination_index(req, res){
   db.Destination.find({}, function(err, destinations){
     res.json(destinations);
   })

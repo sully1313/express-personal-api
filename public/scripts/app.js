@@ -1,7 +1,7 @@
 console.log("Sanity Check: JS is working!");
 
 $(document).ready(function(){
-  $.get('/api/campsite', function(destinations){
+  $.get('/campsite', function(destinations){
     destinations.forEach(function(destination){
       renderDestination(destination);
     })
@@ -15,12 +15,14 @@ function renderDestination(destination){
 };
 
 $(document).ready(function(){
-  $.get('/api/campsite', function(profile){
+  $.get('/profile', function(profile){
+    profile.forEach(function(profile){
     renderProfile(profile);
   })
 })
+});
 
 function renderProfile(profile){
   var source = $('#entry-template').html();
   var template = Handlebars.compile(source);
-}
+};
